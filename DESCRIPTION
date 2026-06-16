@@ -11,3 +11,5 @@ RoxygenNote: 8.0.0
 Imports: 
     ggplot2,
     rlang
+URL: https://github.com/clayford/funbox
+BugReports: https://github.com/clayford/funbox/issues
