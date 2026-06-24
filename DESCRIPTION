@@ -1,5 +1,5 @@
 Package: funbox
-Title: Miscellaneous Functions for Simulation and Visualization  
+Title: Miscellaneous Functions for Simulation and Visualization
 Version: 0.0.1
 Authors@R: 
     c(person("Clay", "Ford", , "joe.clayton.ford@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1470-3842")),

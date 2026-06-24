@@ -1,9 +1,9 @@
 #' Dot Chart
 #'
-#' Create a dot chart using ggplot2. This is useful for visualizing categorical data.
+#' Create a Cleveland dot plot using ggplot2. This is useful for visualizing categorical data.
 #'
-#' @param data a data frame containing the classifying factors and the corresponding entries. This kind of data frame is easily created using \code{as.data.frame()} on a table object created with \code{xtabs()}. (See examples below.) The minimum number of columns is two. The maximum number of columns is four.
-#' @param formula a formula with the left-hand side containing the counts and the right-hand side containing the cross-classifying variables. The order of the classifying variables determines their role in the plot. The first variable will be on the y-axis. The second variable will form the rows in a call to \code{facet_grid()}. If the second variable is also the last variable, it will be the faceting variable in a call to \code{facet_wrap}. The third variable will form the columns in a call to \code{facet_grid()}.
+#' @param data a data frame containing the classifying variables and the corresponding counts for each combination of the classifying variables. This kind of data frame is easily created using \code{as.data.frame.table()} on a table object created with \code{xtabs()}. (See examples below.) The minimum number of columns is two. The maximum number of columns is four.
+#' @param formula a formula with the left-hand side containing the counts and the right-hand side containing the cross-classifying variables. The order of the classifying variables determines their role in the plot. The first variable will be on the y-axis. The second variable will form the rows in a call to \code{facet_grid()}. If the second variable is also the last variable, it will be the faceting variable in a call to \code{facet_wrap}. The third variable will form the columns in a call to \code{facet_grid()}. If no formula is provided, the function assumes the data frame was created with \code{as.data.frame.table()} and looks for counts in the last column.
 #' @param segments Add segments from axis to dots. Default is TRUE.
 #'
 #' @returns Returns a Cleveland dot chart.
