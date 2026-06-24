@@ -5,7 +5,7 @@
 #' @param NMDS A `metaMDS` or `monoMDS` object from the vegan package
 #' @param group A vector indicating group membership for each observation
 #'
-#' #' @seealso
+#' @seealso
 #' - [ggplot2 website](https://ggplot2.tidyverse.org/) - Official ggplot2 documentation
 #' - [vegan reference manual](https://cran.r-project.org/web/packages/vegan/vegan.pdf)
 #'
@@ -45,26 +45,28 @@ plot_nmds <- function(nmds, group = NULL) {
     nmds_scores$group <- group
   }
 
-  ggplot2::ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2, color = group)) +
+  ggplot2::ggplot(nmds_scores,
+                  ggplot2::aes(x = NMDS1, y = NMDS2, color = group)) +
     ggplot2::geom_point() +
 
     #Add convex hull
-    geom_polygon(data = nmds_hull,
-                 aes(x = NMDS1, y = NMDS2, fill = group, group = group),
+    ggplot2::geom_polygon(data = nmds_hull,
+                 ggplot2::aes(x = NMDS1, y = NMDS2, fill = group, group = group),
                  alpha = 0.3) +
 
     #Add stress value
     ggplot2::annotate("text", x = Inf, y = Inf,
-                      label = paste("Stress value =", round(nmds_stress, 3)),
+                      label = paste("Stress value =", round(nmds_stress, 2)),
                       hjust = 1.1, vjust = 1.5) +
 
     #Edit theme
     ggplot2::labs(x = "NMDS1", y = "NMDS2") +
-    ggplot2::theme(axis.text = element_blank(), axis.ticks = element_blank(),
-                   panel.background = element_rect(fill = "white"),
-                   panel.border = element_rect(color = "black",
+    ggplot2::theme(axis.text = ggplot2::element_blank(),
+                  axis.ticks = ggplot2::element_blank(),
+                   panel.background = ggplot2::element_rect(fill = "white"),
+                   panel.border = ggplot2::element_rect(color = "black",
                                                fill = NA, linewidth = .5),
-                   axis.line = element_line(color = "black"),
-                   plot.title = element_text(hjust = 0.5),
-                   legend.key.size = unit(.25, "cm"))
+                   axis.line = ggplot2::element_line(color = "black"),
+                   plot.title = ggplot2::element_text(hjust = 0.5),
+                   legend.key.size = grid::unit(.25, "cm"))
 }

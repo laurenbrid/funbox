@@ -7,13 +7,7 @@
 plot_nmds(nmds, group = NULL)
 }
 \arguments{
-\item{group}{A vector indicating group membership for each observation
-
-#' @seealso
-\itemize{
-\item \href{https://ggplot2.tidyverse.org/}{ggplot2 website} - Official ggplot2 documentation
-\item \href{https://cran.r-project.org/web/packages/vegan/vegan.pdf}{vegan reference manual}
-}}
+\item{group}{A vector indicating group membership for each observation}
 
 \item{NMDS}{A \code{metaMDS} or \code{monoMDS} object from the vegan package}
 }
@@ -34,4 +28,10 @@ nmds_result <- vegan::metaMDS(comm.df[,2:11], k = 2, trymax = 50)
 
 plot_nmds(nmds_result, group = comm.df$group)
 
+}
+\seealso{
+\itemize{
+\item \href{https://ggplot2.tidyverse.org/}{ggplot2 website} - Official ggplot2 documentation
+\item \href{https://cran.r-project.org/web/packages/vegan/vegan.pdf}{vegan reference manual}
+}
 }
