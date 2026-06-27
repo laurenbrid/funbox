@@ -4,10 +4,12 @@
 \alias{plot_nmds}
 \title{Plot an NMDS object with ggplot2}
 \usage{
-plot_nmds(nmds, group = NULL)
+plot_nmds(nmds, group = NULL, use_palette = FALSE)
 }
 \arguments{
-\item{group}{A vector indicating group membership for each observation}
+\item{group}{Numeric. A vector indicating group membership for each observation}
+
+\item{use_palette}{Logical. TRUE to use colorblind-safe Okabe–Ito color palette}
 
 \item{NMDS}{A \code{metaMDS} or \code{monoMDS} object from the vegan package}
 }
@@ -29,9 +31,20 @@ nmds_result <- vegan::metaMDS(comm.df[,2:11], k = 2, trymax = 50)
 plot_nmds(nmds_result, group = comm.df$group)
 
 }
+\references{
+Ichihara et al. (2008). Color Universal Design -The Selection of Four Easily Distinguishable Colors
+for all Color Vision Types. https://jfly.uni-koeln.de/color/ichihara_etal_2008.pdf
+
+Oksanen, J. et al. (2026). \emph{vegan: Community Ecology Package}.
+doi:10.32614/CRAN.package.vegan.
+
+Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis.
+Springer-Verlag New York.
+}
 \seealso{
 \itemize{
 \item \href{https://ggplot2.tidyverse.org/}{ggplot2 website} - Official ggplot2 documentation
 \item \href{https://cran.r-project.org/web/packages/vegan/vegan.pdf}{vegan reference manual}
+\item \url{Okabe and Ito (2008)}
 }
 }
